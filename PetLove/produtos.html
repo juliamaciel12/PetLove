@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - PetLove</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para a página de produtos */
+        .produtos-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+        }
+        .produto-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            background: white;
+        }   
+        .produto-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .categoria-titulo {
+            text-align: center;
+            margin: 30px 0;
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">PetLove<span>♡</span></h1>
+        <a href="index.html" class="nav-button">Voltar</a>
+    </header>
+
+    <main>
+        <h2 class="categoria-titulo">Todos os Produtos</h2>
+        
+        <div class="produtos-container">
+            <!-- Produto 1 -->
+            <div class="produto-card">
+                <img src="images/racao-cachorro.jpg" alt="Ração para Cães">
+                <h3>Ração Premium Cães</h3>
+                <p class="produto-preco">R$ 89,90</p>
+                <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+            
+            <!-- Produto 2 -->
+            <div class="produto-card">
+                <img src="images/racao-gato.jpg" alt="Ração para Gatos">
+                <h3>Ração Premium Gatos</h3>
+                <p class="produto-preco">R$ 79,90</p>
+                <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+            
+            <!-- Produto 3 -->
+            <div class="produto-card">
+                <img src="images/coleira-cachorro.jpg" alt="Coleira para Cães">
+                <h3>Coleira Antipulgas</h3>
+                <p class="produto-preco">R$ 39,90</p>
+                <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+            
+            <!-- Produto 4 -->
+            <div class="produto-card">
+                <img src="images/arranhador-gato.jpg" alt="Arranhador para Gatos">
+                <h3>Arranhador Premium</h3>
+                <p class="produto-preco">R$ 129,90</p>
+                <button class="btn-adicionar">Adicionar ao Carrinho</button>
+            </div>
+            
+            <!-- Adicione mais produtos conforme necessário -->
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

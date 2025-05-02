@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetLove - Gato</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .produtos-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+        }
+        .produto-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+        }
+        .produto-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .categoria-titulo {
+            text-align: center;
+            margin: 30px 0;
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <h1 class="logo">PetLove<span>♡</span></h1>
+            <a href="index.html" class="nav-button">Voltar</a>
+            <nav class="menu">
+                <a href="cachorro.html" class="nav-button">Cachorro</a>
+                <a href="gato.html" class="nav-button">Gato</a>
+                <a href="produtos.html" class="nav-button">Produtos</a>
+            </nav>
+            <input type="text" placeholder="Pesquisar...">
+            <div class="menu-right">
+                <a href="agendamento.html" class="nav-button">Agendamento de Serviços</a>
+                <a href="login.html" class="nav-button">Entrar / Cadastrar</a>
+                <a href="carrinho.html" class="cart-icon">
+                    <img src="images/cart.png" alt="Carrinho">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="categoria-titulo">Produtos para Gatos</h2>
+        
+        <div class="produtos-container">
+            <!-- Produto 1 -->
+            <div class="produto-card">
+                <img src="images/racao-gato.jpg" alt="Ração para Gato">
+                <h3>Ração Premium</h3>
+                <p class="produto-preco">R$ 79,90</p>
+                <button>Adicionar ao Carrinho</button>
+            </div>
+            
+            <!-- Produto 2 -->
+            <div class="produto-card">
+                <img src="images/arranhador-gato.jpg" alt="Arranhador para Gato">
+                <h3>Arranhador</h3>
+                <p class="produto-preco">R$ 129,90</p>
+                <button>Adicionar ao Carrinho</button>
+            </div>
+            
+            <!-- Produto 3 -->
+            <div class="produto-card">
+                <img src="images/brinquedo-gato.jpg" alt="Brinquedo para Gato">
+                <h3>Brinquedo com Catnip</h3>
+                <p class="produto-preco">R$ 19,90</p>
+                <button>Adicionar ao Carrinho</button>
+            </div>
+            <!-- Produto 4 -->
+<div class="produto-card">
+    <img src="images/areia-gato.jpg" alt="Areia Higiênica para Gato">
+    <h3>Areia Higiênica</h3>
+    <p class="produto-descricao">Areia aglomerante com controle de odor, 4kg</p>
+    <p class="produto-preco">R$ 39,90</p>
+    <button class="btn-adicionar" data-id="9">Adicionar ao Carrinho</button>
+</div>
+
+<!-- Produto 5 -->
+<div class="produto-card">
+    <img src="images/transportadora-gato.jpg" alt="Transportadora para Gato">
+    <h3>Transportadora</h3>
+    <p class="produto-descricao">Transportadora segura e ventilada para viagens</p>
+    <p class="produto-preco">R$ 129,90</p>
+    <button class="btn-adicionar" data-id="10">Adicionar ao Carrinho</button>
+</div>
+
+<!-- Produto 6 -->
+<div class="produto-card">
+    <img src="images/comedouro-gato.jpg" alt="Comedouro Elevado para Gato">
+    <h3>Comedouro Elevado</h3>
+    <p class="produto-descricao">Comedouro ergonômico para melhor postura</p>
+    <p class="produto-preco">R$ 59,90</p>
+    <button class="btn-adicionar" data-id="11">Adicionar ao Carrinho</button>
+</div>
+
+<!-- Produto 7 -->
+<div class="produto-card">
+    <img src="images/escova-gato.jpg" alt="Escova para Pelos de Gato">
+    <h3>Escova para Pelos</h3>
+    <p class="produto-descricao">Remove pelos soltos e previne bolas de pelo</p>
+    <p class="produto-preco">R$ 29,90</p>
+    <button class="btn-adicionar" data-id="12">Adicionar ao Carrinho</button>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h2>PetLove♡</h2>
+            <div>
+                <h3>Área do cliente</h3>
+                <a href="login.html">Cadastre-se</a>
+                <a href="minhaconta.html">Minha Conta</a>
+                <a href="carrinho.html">Meu Carrinho</a>
+            </div>
+            <div>
+                <h3>Institucional</h3>
+                <a href="quemsomos.html">Quem somos?</a>
+            </div>
+            <div>
+                <h3>Atendimento:</h3>
+                <p>(41) 9999-9999</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

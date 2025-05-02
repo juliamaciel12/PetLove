@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrinho - PetLove</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .carrinho-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .btn-remover {
+            background: none;
+            border: none;
+            color: #ff6b6b;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .btn-finalizar {
+            background-color: #ffd58a;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">PetLove♡</h1>
+        <a href="index.html" class="nav-button">Voltar</a>
+    </header>
+
+    <main class="carrinho-container">
+        <h2>Seu Carrinho</h2>
+        <table id="tabela-carrinho">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Itens serão inseridos aqui via JavaScript -->
+            </tbody>
+        </table>
+        
+        <button class="btn-finalizar">Finalizar Compra</button>
+        <p><a href="#" id="esvaziar-carrinho">Esvaziar carrinho</a></p>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Função para carregar os itens do carrinho
+        function carregarCarrinho() {
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const tabela = document.querySelector('#tabela-carrinho tbody');
+            
+            tabela.innerHTML = '';
+            
+            if (carrinho.length === 0) {
+                tabela.innerHTML = '<tr><td colspan="5" style="text-align:center;">Seu carrinho está vazio</td></tr>';
+                return;
+            }
+            
+            let totalGeral = 0;
+            
+            carrinho.forEach(item => {
+                const precoNumerico = parseFloat(item.preco.replace('R$ ', '').replace(',', '.'));
+                const totalItem = precoNumerico * item.quantidade;
+                totalGeral += totalItem;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.nome}</td>
+                    <td>${item.preco}</td>
+                    <td>
+                        <button onclick="alterarQuantidade('${item.nome}', -1)">-</button>
+                        ${item.quantidade}
+                        <button onclick="alterarQuantidade('${item.nome}', 1)">+</button>
+                    </td>
+                    <td>R$ ${totalItem.toFixed(2).replace('.', ',')}</td>
+                    <td><button class="btn-remover" onclick="removerItem('${item.nome}')">×</button></td>
+                `;
+                tabela.appendChild(row);
+            });
+            
+            // Adiciona linha do total geral
+            const rowTotal = document.createElement('tr');
+            rowTotal.className = 'total-geral';
+            rowTotal.innerHTML = `
+                <td colspan="3"><strong>Total Geral</strong></td>
+                <td><strong>R$ ${totalGeral.toFixed(2).replace('.', ',')}</strong></td>
+                <td></td>
+            `;
+            tabela.appendChild(rowTotal);
+        }
+        
+        // Funções auxiliares para o carrinho
+        function alterarQuantidade(nomeProduto, alteracao) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const item = carrinho.find(item => item.nome === nomeProduto);
+            
+            if (item) {
+                item.quantidade += alteracao;
+                
+                if (item.quantidade <= 0) {
+                    carrinho = carrinho.filter(item => item.nome !== nomeProduto);
+                }
+                
+                localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                carregarCarrinho();
+                atualizarContadorCarrinho();
+            }
+        }
+        
+        function removerItem(nomeProduto) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho = carrinho.filter(item => item.nome !== nomeProduto);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            carregarCarrinho();
+            atualizarContadorCarrinho();
+        }
+        
+        // Configura os botões da página do carrinho
+        document.getElementById('esvaziar-carrinho')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (confirm('Tem certeza que deseja esvaziar o carrinho?')) {
+                localStorage.removeItem('carrinho');
+                carregarCarrinho();
+                atualizarContadorCarrinho();
+            }
+        });
+        
+        document.querySelector('.btn-finalizar')?.addEventListener('click', function() {
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            if (carrinho.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+            
+            if (confirm('Finalizar compra?')) {
+                alert('Compra finalizada com sucesso! Obrigado por comprar na PetLove!');
+                localStorage.removeItem('carrinho');
+                carregarCarrinho();
+                atualizarContadorCarrinho();
+            }
+        });
+        
+        // Carrega o carrinho quando a página é aberta
+        document.addEventListener('DOMContentLoaded', carregarCarrinho);
+    </script>
+</body>
+</html>

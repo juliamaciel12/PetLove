@@ -1,0 +1,173 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+}
+
+header {
+    background-color: #f7941d;
+    color: white;
+    padding: 10px 20px;
+}
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu button {
+    margin: 0 5px;
+    background: #ffd58a;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.menu-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-icon {
+    width: 24px;
+    height: auto;
+}
+
+.banner {
+    background-color: #ffe0b3;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.banner img {
+    width: 120px;
+}
+
+footer {
+    background-color: #f7941d;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 10px;
+}
+
+footer h2, footer h3 {
+    margin: 5px 0;
+}
+/* Estilo dos botões (laranja pastel escuro) */
+.nav-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #ffd58a;  
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #FFF;  
+    margin: 0 5px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #ffd58a;  /* Laranja um pouco mais escuro no hover */
+}
+/* Estilo do ícone do carrinho */
+.cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffd58a;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: background-color 0.3s;
+    gap: 8px;
+}
+
+.cart-button:hover {
+    background-color: #ffc966;
+}
+
+.cart-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.cart-count {
+    background-color: #ff6b6b;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+/* Feedback visual quando adiciona ao carrinho */
+.feedback-carrinho {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    z-index: 1000;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Contador do carrinho */
+.cart-count {
+    background-color: #ff6b6b;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+/* Estilo para imagens de produtos */
+.produto-card img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para o logo */
+.logo {
+    height: 60px;
+    width: auto;
+}
+
+/* Estilo para imagens no carrinho */
+.carrinho-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}

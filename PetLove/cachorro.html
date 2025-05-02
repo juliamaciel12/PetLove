@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetLove - Cachorro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .produtos-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            justify-content: center;
+        }
+        .produto-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+        }
+        .produto-card img {
+            max-width: 100%;
+            height: auto;
+        }
+        .categoria-titulo {
+            text-align: center;
+            margin: 30px 0;
+            color: #ff6b6b;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <h1 class="logo">PetLove<span>♡</span></h1>
+            <a href="index.html" class="nav-button">Voltar</a>
+            <nav class="menu">
+                <a href="cachorro.html" class="nav-button">Cachorro</a>
+                <a href="gato.html" class="nav-button">Gato</a>
+                <a href="produtos.html" class="nav-button">Produtos</a>
+            </nav>
+            <input type="text" placeholder="Pesquisar...">
+            <div class="menu-right">
+                <a href="agendamento.html" class="nav-button">Agendamento de Serviços</a>
+                <a href="login.html" class="nav-button">Entrar / Cadastrar</a>
+                <a href="carrinho.html" class="cart-icon">
+                    <img src="images/cart.png" alt="Carrinho">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="categoria-titulo">Produtos para Cachorros</h2>
+        
+        <div class="produtos-container">
+            <!-- Produto 1 -->
+            <div class="produto-card">
+                <img src="images/racao-cachorro.jpg" alt="Ração para Cachorro">
+                <h3>Ração Premium</h3>
+                <p class="produto-preco">R$ 89,90</p>
+                <button>Adicionar ao Carrinho</button>
+            </div>
+            
+            <!-- Produto 2 -->
+            <div class="produto-card">
+                <img src="images/coleira-cachorro.jpg" alt="Coleira para Cachorro">
+                <h3>Coleira Antipulgas</h3>
+                <p class="produto-preco">R$ 39,90</p>
+                <button>Adicionar ao Carrinho</button>
+            </div>
+            
+            <!-- Produto 3 -->
+            <div class="produto-card">
+                <img src="images/brinquedo-cachorro.jpg" alt="Brinquedo para Cachorro">
+                <h3>Brinquedo Resistente</h3>
+                <p class="produto-preco">R$ 24,90</p>
+                <button>Adicionar ao Carrinho</button>
+            </div>
+            <!-- Produto 4 -->
+<div class="produto-card">
+    <img src="images/coleira-cachorro-premium.jpg" alt="Coleira Premium para Cachorro">
+    <h3>Coleira Premium</h3>
+    <p class="produto-descricao">Coleira em couro sintético com fecho de segurança</p>
+    <p class="produto-preco">R$ 49,90</p>
+    <button class="btn-adicionar" data-id="4">Adicionar ao Carrinho</button>
+</div>
+
+<!-- Produto 5 -->
+<div class="produto-card">
+    <img src="images/ossinho-cachorro.jpg" alt="Ossinho Dental para Cachorro">
+    <h3>Ossinho Dental</h3>
+    <p class="produto-descricao">Reduz tártaro e limpa os dões naturalmente</p>
+    <p class="produto-preco">R$ 19,90</p>
+    <button class="btn-adicionar" data-id="5">Adicionar ao Carrinho</button>
+</div>
+
+<!-- Produto 6 -->
+<div class="produto-card">
+    <img src="images/guia-cachorro.jpg" alt="Guia Retrátil para Cachorro">
+    <h3>Guia Retrátil</h3>
+    <p class="produto-descricao">Guia de 5 metros com trava de segurança</p>
+    <p class="produto-preco">R$ 89,90</p>
+    <button class="btn-adicionar" data-id="6">Adicionar ao Carrinho</button>
+</div>
+
+<!-- Produto 7 -->
+<div class="produto-card">
+    <img src="images/shinelo-cachorro.jpg" alt="Chinelo para Cachorro">
+    <h3>Chinelo Protetor</h3>
+    <p class="produto-descricao">Protege as patas em superfícies quentes ou ásperas</p>
+    <p class="produto-preco">R$ 69,90</p>
+    <button class="btn-adicionar" data-id="7">Adicionar ao Carrinho</button>
+</div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h2>PetLove♡</h2>
+            <div>
+                <h3>Área do cliente</h3>
+                <a href="login.html">Cadastre-se</a>
+                <a href="minhaconta.html">Minha Conta</a>
+                <a href="carrinho.html">Meu Carrinho</a>
+            </div>
+            <div>
+                <h3>Institucional</h3>
+                <a href="quemsomos.html">Quem somos?</a>
+            </div>
+            <div>
+                <h3>Atendimento:</h3>
+                <p>(41) 9999-9999</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
