@@ -1,10 +1,10 @@
--- Tabela de Cadastro de Clientes
 CREATE TABLE Cadastro_Clientes (
     Cpf_cliente CHAR(11) PRIMARY KEY,
     Nome_cliente VARCHAR(100),
     Data_nasc DATE,
     Email VARCHAR(100),
-    Numero VARCHAR(15)
+    Numero VARCHAR(15),
+    Senha VARCHAR(255)
 );
 
 -- Tabela de Cadastro de Pets
@@ -23,14 +23,11 @@ CREATE TABLE Cadastro_Pet (
 CREATE TABLE Agendamento (
     Id_agendamento INT AUTO_INCREMENT PRIMARY KEY,
     Id_pet INT,
-    Data_agendamento DATE,
-    Horario_agendamento TIME,  -- Corrigido aqui
     Banho BOOLEAN,
     Tosa BOOLEAN,
     Banho_tosa BOOLEAN,
     FOREIGN KEY (Id_pet) REFERENCES Cadastro_Pet(Id_pet)
 );
-
 
 -- Tabela de Estoque
 CREATE TABLE Estoque (
