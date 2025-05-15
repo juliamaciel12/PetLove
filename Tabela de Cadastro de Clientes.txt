@@ -1,0 +1,76 @@
+CREATE TABLE Cadastro_Clientes (
+    Cpf_cliente CHAR(11) PRIMARY KEY,
+    Nome_cliente VARCHAR(100),
+    Data_nasc DATE,
+    Email VARCHAR(100),
+    Numero VARCHAR(15),
+    Senha VARCHAR(255)
+);
+
+-- Tabela de Cadastro de Pets
+CREATE TABLE Cadastro_Pet (
+    Id_pet INT AUTO_INCREMENT PRIMARY KEY,
+    Cpf_cliente CHAR(11),
+    Nome_pet VARCHAR(100),
+    Tipo_pet VARCHAR(50),
+    Raca VARCHAR(50),
+    Tamanho VARCHAR(20),
+    Data_nasc DATE,
+    FOREIGN KEY (Cpf_cliente) REFERENCES Cadastro_Clientes(Cpf_cliente)
+);
+
+-- Tabela de Agendamento
+CREATE TABLE Agendamento (
+    Id_agendamento INT AUTO_INCREMENT PRIMARY KEY,
+    Id_pet INT,
+    Banho BOOLEAN,
+    Tosa BOOLEAN,
+    Banho_tosa BOOLEAN,
+    FOREIGN KEY (Id_pet) REFERENCES Cadastro_Pet(Id_pet)
+);
+
+-- Tabela de Estoque
+CREATE TABLE Estoque (
+    Id_estoque INT AUTO_INCREMENT PRIMARY KEY,
+    Shampoo INT DEFAULT 0,
+    Condicionador INT DEFAULT 0,
+    Racao INT DEFAULT 0,
+    Escova INT DEFAULT 0,
+    Cama INT DEFAULT 0,
+    Potes INT DEFAULT 0,
+    Tapetes_higienicos INT DEFAULT 0,
+    Caixinha_de_areia INT DEFAULT 0,
+    Areia INT DEFAULT 0,
+    Roupa INT DEFAULT 0,
+    Petisco INT DEFAULT 0,
+    Brinquedos INT DEFAULT 0,
+    Coleira INT DEFAULT 0
+);
+
+-- Tabela intermediária Compra_Itens
+CREATE TABLE Compra_Itens (
+    Id_compra INT AUTO_INCREMENT PRIMARY KEY,
+    Cpf_cliente CHAR(11),
+    Id_estoque INT,
+    Data_compra DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Quantidade INT,
+    FOREIGN KEY (Cpf_cliente) REFERENCES Cadastro_Clientes(Cpf_cliente),
+    FOREIGN KEY (Id_estoque) REFERENCES Estoque(Id_estoque)
+);
+
+CREATE TABLE Carrinho (
+    Id_carrinho INT AUTO_INCREMENT PRIMARY KEY,
+    Cpf_cliente CHAR(11),
+    Data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Ativo BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (Cpf_cliente) REFERENCES Cadastro_Clientes(Cpf_cliente)
+);
+CREATE TABLE Carrinho_Itens (
+    Id_item INT AUTO_INCREMENT PRIMARY KEY,
+    Id_carrinho INT,
+    Id_estoque INT,
+    Quantidade INT,
+    Preco_unitario DECIMAL(10,2),
+    FOREIGN KEY (Id_carrinho) REFERENCES Carrinho(Id_carrinho),
+    FOREIGN KEY (Id_estoque) REFERENCES Estoque(Id_estoque)
+);
