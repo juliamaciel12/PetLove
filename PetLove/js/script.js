@@ -131,7 +131,9 @@ function encontrarImagemPorNome(nome) {
 }
 
 // Validação de formulários
+
 function validarFormularios() {
+    /*
     const login = document.querySelector('.login-box form');
     if (login) {
         login.onsubmit = e => {
@@ -141,21 +143,23 @@ function validarFormularios() {
             alert(email && senha ? 'Login realizado com sucesso! (simulação)' : 'Por favor, preencha todos os campos.');
             if (email && senha) window.location.href = 'index.html';
         };
-    }
+    }*/
 
+    
+
+    /*
     const cadastro = document.querySelector('.form-container form');
     if (cadastro) {
-        cadastro.onsubmit = e => {
-            e.preventDefault();
-            const [senha, confirmarSenha] = cadastro.querySelectorAll('input[type="password"]');
-            if (senha.value !== confirmarSenha.value) {
-                alert('As senhas não coincidem!');
-                return;
+        cadastro.addEventListener('submit', e => {
+            const [senha] = cadastro.querySelectorAll('input[type="password"]');
+            // Se quiser validar a senha antes de enviar ao PHP, faça aqui
+            if (!/^[A-Za-z0-9]{1,8}$/.test(senha.value)) {
+                e.preventDefault();
+                alert('A senha deve conter até 8 caracteres, apenas letras e números.');
             }
-            alert('Cadastro realizado com sucesso! (simulação)');
-            window.location.href = 'index.html';
-        };
-    }
+            // Se quiser comparar duas senhas, insira um segundo campo de confirmação
+        });
+    } */
 
     const agendamento = document.querySelector('.agendamento-form form');
     if (agendamento) {
@@ -170,6 +174,46 @@ function validarFormularios() {
         };
     }
 }
+
+// Login
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
+    const cpfInput = form.querySelector('input[name="cpf"]');
+    const senhaInput = form.querySelector('input[name="senha"]');
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    // Validação antes do envio
+    form.addEventListener('submit', (e) => {
+        const cpf = cpfInput.value.trim();
+        const senha = senhaInput.value.trim();
+
+        if (!/^\d{11}$/.test(cpf)) {
+            alert("Digite um CPF válido com exatamente 11 números.");
+            e.preventDefault();
+            return;
+        }
+
+        if (senha === '') {
+            alert("Digite sua senha.");
+            e.preventDefault();
+            return;
+        }
+
+        // Feedback visual durante envio
+        submitButton.disabled = true;
+        submitButton.textContent = "Entrando...";
+    });
+
+    // Mostrar/ocultar senha
+    const toggleSenha = document.getElementById('toggle-senha');
+    if (toggleSenha) {
+        toggleSenha.addEventListener('change', () => {
+            senhaInput.type = toggleSenha.checked ? 'text' : 'password';
+        });
+    }
+});
+
 
 // Eventos da página
 document.addEventListener('DOMContentLoaded', () => {
