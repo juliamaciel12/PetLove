@@ -1,0 +1,15 @@
+Servidor Local (XAMPP):
+•	Sistema Operacional: Windows 10 ou superior
+•	XAMPP instalado com os seguintes componentes:
+o	Apache ativado
+o	MySQL ativado
+•	Navegador Web: Google Chrome, Mozilla Firefox ou Microsoft Edge (atualizado)
+•	Conexão com a internet 
+
+* Criar no MySQL banco de dados com o nome "clinica_veterinaria" e adicionar o banco de dados atualizado.
+
+* Lembrando que é necessário adicionar o projeto na pasta htdocs, que está localizada dentro da pasta Xampp
+________________________________________
+ACESSO AO SISTEMA
+Para acessar o sistema, digite no navegador:
+http://localhost/clinica_veterinaria/index.php
